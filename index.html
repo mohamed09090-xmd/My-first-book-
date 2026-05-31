@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="A responsive animated flipbook story website for The Last Train Home." />
+  <title>The Last Train Home | Interactive Flipbook</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+  <div class="ambient ambient-three"></div>
+
+  <main class="app-shell">
+    <section class="hero-panel" aria-label="Story introduction">
+      <p class="eyebrow">Interactive Storybook</p>
+      <h1>The Last Train Home</h1>
+      <p class="hero-text">
+        Turn each page and follow Adam through a stormy night, a delayed train,
+        and a quiet return to the person who never stopped waiting.
+      </p>
+      <div class="status-row" aria-live="polite">
+        <span id="pageCounter">Page 1 of 10</span>
+        <div class="progress-track" aria-hidden="true">
+          <span id="progressBar"></span>
+        </div>
+      </div>
+    </section>
+
+    <section class="book-stage" aria-label="Animated book reader">
+      <div class="book-wrap">
+        <div class="book" id="book">
+          <article class="page page-cover is-active" data-page="1">
+            <div class="page-content cover-content">
+              <span class="cover-kicker">A B2 English Story</span>
+              <figure class="cover-art-wrap">
+                <img class="cover-art" src="assets/cover.svg" alt="A stormy night train station with rain, a glowing platform lamp, and a silver train arriving." />
+              </figure>
+              <h2>The Last Train Home</h2>
+              <p>Written as an original short story for an interactive reading experience.</p>
+              <div class="cover-mark" aria-hidden="true">✦</div>
+            </div>
+          </article>
+
+          <article class="page" data-page="2">
+            <div class="page-content">
+              <span class="chapter-label">Page 1</span>
+              <p>
+                When Adam arrived at the station, the sky was already turning dark.
+                Heavy clouds covered the city, and a cold wind pushed old newspapers
+                across the empty platform. He looked at the large clock above the
+                ticket office: <strong>10:47 p.m.</strong> The last train to his hometown
+                would leave in thirteen minutes.
+              </p>
+              <p>
+                Adam had not visited his mother for almost two years. At first, he had
+                been too busy with university. Then he had found a job in the city,
+                and every week he told himself the same excuse: <em>I will go next weekend.</em>
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="3">
+            <div class="page-content">
+              <span class="chapter-label">Page 2</span>
+              <p>
+                But next weekend always became another weekend, and another, until
+                the distance between them felt bigger than the road itself.
+              </p>
+              <p>
+                He bought a ticket from the machine and sat on a metal bench. The
+                station was almost silent, except for the sound of rain beginning to
+                fall against the glass roof. A few people were waiting nearby: an old
+                man holding a small brown suitcase, a young woman reading a book,
+                and a boy who kept staring at the train tracks as if he expected
+                something magical to appear.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="4">
+            <div class="page-content">
+              <span class="chapter-label">Page 3</span>
+              <p>
+                Adam took out his phone. There were three missed calls from his
+                mother. He had ignored them earlier because he was in a meeting.
+                Now, looking at her name on the screen, he felt ashamed. He pressed
+                the call button.
+              </p>
+              <p>
+                She answered after the first ring.
+              </p>
+              <p class="dialogue">
+                “Adam?” Her voice sounded tired, but warm.
+              </p>
+              <p class="dialogue">
+                “Hi, Mom,” he said quietly. “I’m at the station. I’m coming home.”
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="5">
+            <div class="page-content">
+              <span class="chapter-label">Page 4</span>
+              <p>
+                For a few seconds, she said nothing. Then he heard her laugh softly.
+              </p>
+              <p class="dialogue">
+                “You finally remembered the way?”
+              </p>
+              <p>
+                Adam smiled, but his eyes burned.
+              </p>
+              <p class="dialogue">
+                “I never forgot. I just… kept delaying it.”
+              </p>
+              <p class="dialogue">
+                “That is almost the same thing,” she replied, but her voice was gentle.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="6">
+            <div class="page-content">
+              <span class="chapter-label">Page 5</span>
+              <p>
+                Before Adam could answer, the lights in the station suddenly flickered.
+                A loud announcement filled the platform.
+              </p>
+              <p class="dialogue">
+                “Attention, passengers. Due to technical problems caused by the storm,
+                the 11:00 train has been delayed.”
+              </p>
+              <p>
+                People began to complain. The old man sighed. The young woman closed
+                her book. Adam looked at the tracks, feeling the old frustration rising
+                inside him. Part of him wanted to go back to his apartment, sleep,
+                and try again another day.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="7">
+            <div class="page-content">
+              <span class="chapter-label">Page 6</span>
+              <p>
+                But then his mother spoke through the phone.
+              </p>
+              <p class="dialogue">
+                “Are you still there?”
+              </p>
+              <p class="dialogue">
+                “Yes,” he said.
+              </p>
+              <p class="dialogue">
+                “Good. Then wait.”
+              </p>
+              <p>
+                It was such a simple sentence, but it struck him deeply. <em>Wait.</em>
+                He realized that his mother had been waiting for him for two years
+                without complaining. She had waited through missed calls, short
+                messages, forgotten birthdays, and empty promises.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="8">
+            <div class="page-content">
+              <span class="chapter-label">Page 7</span>
+              <p>
+                So Adam waited.
+              </p>
+              <p>
+                The delay lasted forty minutes. During that time, the old man sat
+                beside him and began talking. He was going to visit his daughter,
+                who had just had a baby. The young woman offered Adam a piece of
+                chocolate from her bag. The boy, who had been staring at the tracks,
+                explained that he loved trains because they always knew where they
+                were going.
+              </p>
+              <p>
+                Adam laughed at that.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="9">
+            <div class="page-content">
+              <span class="chapter-label">Page 8</span>
+              <p class="dialogue">
+                “I wish people were like trains,” he said.
+              </p>
+              <p>
+                The boy looked at him seriously.
+              </p>
+              <p class="dialogue">
+                “Maybe they are. They just stop too often.”
+              </p>
+              <p>
+                Finally, the train arrived, shining through the rain like a long silver
+                shadow. Adam stepped inside and found a seat by the window. As the
+                train moved away from the city, he watched the lights disappear
+                behind him.
+              </p>
+              <p>
+                For the first time in a long while, he did not feel trapped by time.
+                He felt as if he had chosen the right direction.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="10">
+            <div class="page-content final-page">
+              <span class="chapter-label">Final Page</span>
+              <p>
+                When he reached his hometown, it was past midnight. The station was
+                small, quiet, and familiar. His mother was standing under a yellow lamp,
+                wearing the same blue coat she had worn for years. She looked older
+                than he remembered, and that hurt him more than he expected.
+              </p>
+              <p>
+                Adam walked toward her slowly.
+              </p>
+              <p class="dialogue">
+                “I’m sorry,” he said.
+              </p>
+              <p>
+                She did not answer immediately. She simply opened her arms.
+              </p>
+              <p>
+                And in that moment, Adam understood something important: sometimes
+                forgiveness does not arrive with big speeches. Sometimes it arrives
+                silently, in the shape of someone who kept waiting, even when they
+                had every reason to stop.
+              </p>
+              <div class="credits" aria-label="Creator credits">
+                <span class="credit-label">Creator Credit</span>
+                <a class="instagram-link" href="https://www.instagram.com/_gm0h?igsh=MXc2bDVlMjR6dmluMA==" target="_blank" rel="noopener noreferrer">Instagram: @_gm0h</a>
+                <p>© 2026 ghalima mohamed. Designed by ghalima mohamed. All rights reserved.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+
+      <div class="controls" aria-label="Book controls">
+        <button class="control-btn" id="prevBtn" type="button" aria-label="Go to previous page">
+          <span>Previous</span>
+        </button>
+        <button class="control-btn primary" id="nextBtn" type="button" aria-label="Go to next page">
+          <span>Next Page</span>
+        </button>
+      </div>
+
+      <p class="hint">Use the buttons, keyboard arrows, or swipe on mobile.</p>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
