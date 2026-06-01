@@ -1,0 +1,12 @@
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">The Last Train Home favicon</title>
+  <desc id="desc">A small glowing train icon for the interactive storybook.</desc>
+  <rect width="64" height="64" rx="16" fill="#0B1020"/>
+  <circle cx="48" cy="13" r="8" fill="#FDE68A" opacity="0.9"/>
+  <path d="M12 39C14 29 22 22 33 22H43C50 22 55 27 56 34L57 42H11L12 39Z" fill="#CBD5E1"/>
+  <path d="M20 29H31C33 29 35 31 35 33V36H18V31C18 30 19 29 20 29Z" fill="#1E293B"/>
+  <path d="M39 29H45C48 29 51 31 52 34L53 36H37V31C37 30 38 29 39 29Z" fill="#1E293B"/>
+  <path d="M10 45H58" stroke="#FFB703" stroke-width="4" stroke-linecap="round"/>
+  <circle cx="23" cy="44" r="5" fill="#0F172A"/>
+  <circle cx="47" cy="44" r="5" fill="#0F172A"/>
+</svg>

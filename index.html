@@ -4,18 +4,63 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="A responsive animated flipbook story website for The Last Train Home." />
+  <meta name="theme-color" content="#0b1020" />
+
+  <meta property="og:title" content="The Last Train Home" />
+  <meta property="og:description" content="An interactive B2 English flipbook story about distance, regret, waiting, and forgiveness." />
+  <meta property="og:image" content="assets/cover.svg" />
+  <meta property="og:type" content="website" />
+
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="The Last Train Home" />
+  <meta name="twitter:description" content="An interactive B2 English flipbook story." />
+  <meta name="twitter:image" content="assets/cover.svg" />
+
   <title>The Last Train Home | Interactive Flipbook</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+  <link rel="manifest" href="manifest.json" />
+  <link rel="preload" href="assets/cover.svg" as="image" type="image/svg+xml" />
+  <link rel="preload" href="script.js" as="script" />
+  <link rel="prefetch" href="assets/icon.svg" as="image" type="image/svg+xml" />
+  <link rel="prefetch" href="assets/favicon.svg" as="image" type="image/svg+xml" />
   <link rel="stylesheet" href="style.css" />
 </head>
-<body>
+<body class="auth-locked">
   <div class="ambient ambient-one"></div>
   <div class="ambient ambient-two"></div>
   <div class="ambient ambient-three"></div>
 
-  <main class="app-shell">
+  <section class="auth-gate" id="authGate" aria-label="Private access gate">
+    <div class="auth-card" role="dialog" aria-labelledby="authTitle" aria-describedby="authDescription">
+      <span class="auth-eyebrow">Private Story Access</span>
+      <h1 id="authTitle">Enter the Reader Code</h1>
+      <p id="authDescription">
+        This storybook is protected. Use the 6-digit code from the authenticator app linked to this project.
+      </p>
+      <form class="auth-form" id="authForm" novalidate>
+        <label for="authCode">Authenticator Code</label>
+        <div class="auth-input-row">
+          <input
+            id="authCode"
+            name="authCode"
+            type="text"
+            inputmode="numeric"
+            autocomplete="one-time-code"
+            pattern="[0-9]*"
+            maxlength="6"
+            placeholder="000000"
+            aria-describedby="authMessage"
+            required
+          />
+          <button class="auth-submit" id="authSubmit" type="submit">Verify Code</button>
+        </div>
+        <p class="auth-message" id="authMessage" aria-live="polite"></p>
+      </form>
+      <p class="auth-note">The code refreshes every 30 seconds in your authenticator app.</p>
+    </div>
+  </section>
+
+  <main class="app-shell" id="appShell" aria-hidden="true">
     <section class="hero-panel" aria-label="Story introduction">
       <p class="eyebrow">Interactive Storybook</p>
       <h1>The Last Train Home</h1>
@@ -24,11 +69,12 @@
         and a quiet return to the person who never stopped waiting.
       </p>
       <div class="status-row" aria-live="polite">
-        <span id="pageCounter">Page 1 of 10</span>
+        <span id="pageCounter">Page 1 of 11</span>
         <div class="progress-track" aria-hidden="true">
           <span id="progressBar"></span>
         </div>
       </div>
+      <button class="lock-btn" id="lockBtn" type="button">Lock Story</button>
     </section>
 
     <section class="book-stage" aria-label="Animated book reader">
@@ -41,12 +87,29 @@
                 <img class="cover-art" src="assets/cover.svg" alt="A stormy night train station with rain, a glowing platform lamp, and a silver train arriving." />
               </figure>
               <h2>The Last Train Home</h2>
-              <p>Written as an original short story for an interactive reading experience.</p>
+              <p class="cover-subtitle">A story about returning before it is too late.</p>
+              <p class="cover-author">Designed by ghalima mohamed</p>
               <div class="cover-mark" aria-hidden="true">✦</div>
             </div>
           </article>
 
-          <article class="page" data-page="2">
+          <article class="page before-page" data-page="2">
+            <div class="page-content center-page">
+              <span class="chapter-label">Before You Read</span>
+              <h2 class="page-title">Distance, regret, waiting, and forgiveness</h2>
+              <p>
+                This short story follows Adam as he tries to return home after a long absence.
+                The storm, the delayed train, and the quiet station are not only part of the
+                setting; they also reflect the emotional distance between Adam and his mother.
+              </p>
+              <p>
+                Read slowly, notice the small details, and pay attention to what changes inside
+                Adam before he finally reaches home.
+              </p>
+            </div>
+          </article>
+
+          <article class="page" data-page="3">
             <div class="page-content">
               <span class="chapter-label">Page 1</span>
               <p>
@@ -64,7 +127,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="3">
+          <article class="page" data-page="4">
             <div class="page-content">
               <span class="chapter-label">Page 2</span>
               <p>
@@ -82,7 +145,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="4">
+          <article class="page" data-page="5">
             <div class="page-content">
               <span class="chapter-label">Page 3</span>
               <p>
@@ -103,7 +166,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="5">
+          <article class="page" data-page="6">
             <div class="page-content">
               <span class="chapter-label">Page 4</span>
               <p>
@@ -124,7 +187,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="6">
+          <article class="page" data-page="7">
             <div class="page-content">
               <span class="chapter-label">Page 5</span>
               <p>
@@ -144,7 +207,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="7">
+          <article class="page" data-page="8">
             <div class="page-content">
               <span class="chapter-label">Page 6</span>
               <p>
@@ -168,7 +231,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="8">
+          <article class="page" data-page="9">
             <div class="page-content">
               <span class="chapter-label">Page 7</span>
               <p>
@@ -188,7 +251,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="9">
+          <article class="page" data-page="10">
             <div class="page-content">
               <span class="chapter-label">Page 8</span>
               <p class="dialogue">
@@ -213,7 +276,7 @@
             </div>
           </article>
 
-          <article class="page" data-page="10">
+          <article class="page" data-page="11">
             <div class="page-content final-page">
               <span class="chapter-label">Final Page</span>
               <p>
@@ -239,8 +302,9 @@
               </p>
               <div class="credits" aria-label="Creator credits">
                 <span class="credit-label">Creator Credit</span>
-                <a class="instagram-link" href="https://www.instagram.com/_gm0h?igsh=MXc2bDVlMjR6dmluMA==" target="_blank" rel="noopener noreferrer">Instagram: @_gm0h</a>
+                <a class="instagram-link" href="https://www.instagram.com/_gm0h/" target="_blank" rel="noopener noreferrer">Instagram: @_gm0h</a>
                 <p>© 2026 ghalima mohamed. Designed by ghalima mohamed. All rights reserved.</p>
+                <button class="read-again-btn" id="restartBtn" type="button">Read Again</button>
               </div>
             </div>
           </article>
@@ -256,7 +320,7 @@
         </button>
       </div>
 
-      <p class="hint">Use the buttons, keyboard arrows, or swipe on mobile.</p>
+      <p class="hint">Use the buttons, keyboard arrows, page-side taps, or swipe on mobile.</p>
     </section>
   </main>
 
